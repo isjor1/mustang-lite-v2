@@ -1,1 +1,35 @@
-h1 { color:red; }
+div {
+    width: 2000px;
+    height: 2000px;
+    background-color: rgb(77, 255, 7);
+    text-align: left;
+  
+  }
+  
+  
+  h1 {
+    color: rgb(137, 149, 255);
+    font-size:40px;
+  }
+  
+  p {
+    color: rgba(255, 0, 221, 0.753);
+    font-size:18px;
+  }
+  
+  button {
+    background-color: #220b8aa4;
+    border-radius: 50%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  button:hover {
+      background-color: white;
+      color: red;
+  }

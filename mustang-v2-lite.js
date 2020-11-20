@@ -9,10 +9,10 @@ function viewCurrentContact() {
     currentContact = contactArray[currentContactIndex];
     console.log(currentContact);
     document.getElementById("nameID").value = currentContact.preferredName;   
-    document.getElementById("emailID").value = currentContact.email;   
+    document.getElementById("emailID").value = currentContact.email; 
+    document.getElementById("zipID").value = currentContact.zip;   
     document.getElementById("cityID").value = currentContact.city;   
-    document.getElementById("stateID").value = currentContact.state;
-    document.getElementById("zipID").value = currentContact.zip;  
+    document.getElementById("stateID").value = currentContact.state; 
 
     // Todo: Add additional fields.
     document.getElementById("statusID").innerHTML = "Status: Viewing contact " + (currentContactIndex+1) + " of " + contactArray.length;
