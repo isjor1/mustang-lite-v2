@@ -1,6 +1,8 @@
 
 var contactURLArray = [];
 var contactArray = [];
+var cityArray = [];
+var zipArray = [];
 var loadingContact = 0;
 var currentContactIndex = 0; 
 
@@ -20,13 +22,14 @@ function viewCurrentContact() {
 
 function previous() {
     if (currentContactIndex > 0) {
-        currentContactIndex--;
+        currentContactIndex --;
     }
     currentContact = contactArray[currentContactIndex];
     viewCurrentContact();
 
-    // Todo: Disable previous button when currentContactIndex equal to 0.
-    // Todo: Save changed items to contacts array and resort array.
+    if (currentContactIndex == 0 ) {
+        document.getElementById("prev").disabled = true;
+    }
 }
 
 function next() {
@@ -36,26 +39,25 @@ function next() {
     currentContact = contactArray[currentContactIndex];
     viewCurrentContact();
     
-    // Todo: Disable next button when there is no next item.
-    // Todo: Save changed items to contacts array and resort array.
-}
+    if (currentContactIndex == 21 ) {
+        document.getElementById("next").disabled = true;
+    }
+   
+        }
 
 function add() {
     console.log('add()');
-
-    // Todo: Implement add functionality by inserting new element into array.
+    var input = document.getElementById('nameID');
+    contactArray.push(input.value);   
+    
 }
 
 function remove() {
     console.log('remove()');
-
-    // Todo: Implement delete functionality by deleting element from array.
-}
-
-function zipFocusFunction() {
-    console.log('focusFunction()');
-
-    // Todo: Remove the function as it is not needed.
+    delete contactArray[currentContactIndex];
+    currentContactIndex++;
+    viewCurrentContact(); 
+    
 }
 
 function zipBlurFunction() {
@@ -126,6 +128,10 @@ function loadContacts() {
     }
 }
 
+function autoComplete(inp, arr) {
+
+}
+
 function loadNextContact(URL) {
     console.log("URL: " + URL);
     contactRequest = new XMLHttpRequest();
@@ -136,6 +142,8 @@ function loadNextContact(URL) {
         contact = JSON.parse(contactRequest.responseText);
         console.log("Contact: " + contact.firstName);
         contactArray.push(contact);
+        cityArray.push(contact.city);
+        zipArray.push(contact.zip);
 
         document.getElementById("contactsID").innerHTML = JSON.stringify(contactArray);
 
@@ -156,6 +164,8 @@ function loadNextContact(URL) {
 
     contactRequest.send();
 }
+
+
 
 
 
