@@ -16,7 +16,6 @@ function viewCurrentContact() {
     document.getElementById("cityID").value = currentContact.city;   
     document.getElementById("stateID").value = currentContact.state; 
 
-    // Todo: Add additional fields.
     document.getElementById("statusID").innerHTML = "Status: Viewing contact " + (currentContactIndex+1) + " of " + contactArray.length;
 }
 
